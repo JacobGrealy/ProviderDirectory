@@ -1,4 +1,10 @@
+var directoryArray = JSON.parse("ExistingData.json");
+var directoryList = directoryArray.map((directoryArray) => 
+<li>{directoryArray.first_name}</li>
+);
 ReactDOM.render(
-  <div>This is where our directory app is going to go! Exciting!</div>,
+    <div>
+        <ul>{directoryList}</ul>
+    </div>,
   document.getElementById('ProviderDirectoryContainer')
 );
