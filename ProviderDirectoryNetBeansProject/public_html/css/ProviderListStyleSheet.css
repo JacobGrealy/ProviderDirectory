@@ -1,0 +1,119 @@
+#ProviderListDiv
+{
+    display: inline-block;
+    margin: 10px;
+    vertical-align:top;    
+    min-width: 300px;
+}
+
+#ProviderListTitleDiv
+{
+    background-color: #ffffff;
+    max-width: 100px;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#ProviderListContentDiv
+{
+    background-color: #ffffff;
+    text-align: left;
+    padding: 15px;
+}
+
+#ProviderListRecordListDiv
+{
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#ProviderListSearchDiv
+{
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align:top;
+}
+
+#ProviderListSort
+{
+    display: inline-block;
+}
+
+#ProviderListSort select
+{
+    vertical-align:top;
+    display: inline-block;
+    font-size: 11pt;
+}
+
+#ProviderListSort button
+{
+    vertical-align:top;
+    display: inline-block;
+    font-size: 9pt;
+    background-color: #00264d;
+    color: #ffffff;
+}
+
+#searchTextBox
+{
+    vertical-align:top;
+    width: 300px;
+}
+
+#searchButton
+{
+    font-size: 10pt;
+    background-color: #00264d;
+    color: #ffffff;
+}
+
+.whiteBackground
+{
+    background-color: #eeeeee;
+}
+
+.blueBackground
+{
+    background-color: #bfd7ff;
+}
+
+.providerListRecord
+{
+    padding: 15px;
+}
+
+.recordCheckbox
+{
+    width: 5%;
+    float: left;
+    margin-top: 15px;
+    height: 16px;
+        
+}
+.recordText
+{
+    width: 92%;
+}
+
+.lastAndFirstName
+{
+    font-weight: bold;
+    text-align: left;
+}
+
+.specialty
+{
+    text-align: right;
+}
+
+.email
+{
+    text-align: left;
+}
+
+.practiceName
+{
+    text-align: right;
+}

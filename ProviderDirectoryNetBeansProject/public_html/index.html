@@ -4,12 +4,29 @@
         <title>Grealy Provider Directory</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="mainStyleSheet.css">
+        
+        <link href="css/mainStyleSheet.css" rel="stylesheet" type="text/css"/>
+        <link href="css/ProviderListStyleSheet.css" rel="stylesheet" type="text/css"/>
+        <link href="css/CreateEditProviderStyleSheet.css" rel="stylesheet" type="text/css"/>
+        
+        
         <script src="https://unpkg.com/react@15/dist/react.min.js"></script> <!-- React Framework -->
         <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script> <!-- React Framework -->
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- Babel js for converting our jsx into js -->
-        <script type="text/babel" src="providerDirectoryReactjs.jsx"></script> <!-- This is our main React script, it is written in jsx and will be used to build our directory app -->
-    </head>
+ 
+        <!-- Helper React Scripts to support our main script -->
+        <script src="scripts/ProviderDirectoryApp.jsx" type="text/babel"></script>
+        <script src="scripts/CreateEditProvider.jsx" type="text/babel"></script>
+        <script src="scripts/ProviderList.jsx" type="text/babel"></script>
+        <script src="scripts/ProviderListRecord.jsx" type="text/babel"></script>
+        <script src="scripts/ProviderListSearch.jsx" type="text/babel"></script>
+        <script src="scripts/ProviderListSort.jsx" type="text/babel"></script>
+        <script src="scripts/ProviderEntryField.jsx" type="text/babel"></script>
+        
+        
+        <!-- This is our main React script, it is written in jsx and will be used to build our directory app -->
+        <script type="text/babel" src="scripts/providerDirectoryReactMain.jsx"></script>
+    </head>   
     <body>
       <Div id ="ContentContainer">
             <div id ="TitleBarContainer">
@@ -17,6 +34,9 @@
                 <div id ="TitleTextandVersionContainerDiv">Provider Directory<div id ="TitleVersionDiv"></div></div>                           
             </div>
             <div id="ProviderDirectoryAppContainer"></div>
+            <div id="footer">
+                Designed By: <a href="http://JacobGrealy.com">Jacob Grealy</a> 2017
+            </div>
       </div>
     </body>
 </html>

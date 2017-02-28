@@ -1,0 +1,63 @@
+body {
+    margin:0;
+    padding: 0;
+    background-color: #00264d;
+}
+
+#footer
+{
+    text-align: center;
+    margin: 10px;
+    font-size: 8pt;
+    color: white;
+}
+
+a:link    {color:white; background-color:transparent; text-decoration:none}
+a:visited {color:white; background-color:transparent; text-decoration:none}
+a:hover   {color:orange; background-color:transparent; text-decoration:underline}
+a:active  {color:white; background-color:transparent; text-decoration:underline}
+
+#ContentContainer {
+    min-width: 600px;
+}
+
+#TitleBarContainer{
+    background-color: #00264d;
+    height: 60px;   
+}
+
+#UpdoxLogoDiv{
+    float: left;
+    color: white;
+    height: 60px;
+}
+
+#UpdoxLogoDiv #logoImage{
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#TitleTextandVersionContainerDiv{
+    text-align: center;
+    color: white;
+    font-size: 250%;
+    font-weight: regular;
+}
+
+#TitleVersionDiv{
+    margin-left: 5px;
+    display: inline-block;
+    color: white;
+    font-size: 40%;
+    font-weight: normal;
+}
+
+#ProviderDirectoryAppContainer
+{
+    background-color: #95a8c8;
+    text-align: center;
+    border-top: 2px solid lightblue;
+    border-bottom: 2px solid lightblue;
+    padding: 15px;
+}
+

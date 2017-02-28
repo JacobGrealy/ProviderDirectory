@@ -1,0 +1,70 @@
+#CreateEditProviderDiv
+{
+    display: inline-block;
+    margin: 10px;
+    vertical-align:top;
+}
+
+#CreateEditProviderTitleDiv
+{
+    background-color: #ffffff;
+    max-width: 115px;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#CreateEditProviderContentDiv
+{
+    background-color: #ffffff;
+    text-align: left;
+    padding: 15px;
+}
+
+.providerEntryField
+{
+    margin-bottom: 30px;
+}
+
+.fieldName
+{
+    margin-left: 14px
+}
+
+.fieldText
+{
+    text-align: left;
+    width: 300px;
+    float: right;
+}
+
+.requiredSymbol
+{
+    margin-top: 3px;
+    margin-right: 5px;
+    float: left;
+    color: red;
+}
+
+#CreateEditButton
+{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 14px;
+    background-color: green; /* Green */
+    color: #ffffff;
+    font-size: 14pt;
+}
+
+#CancelButton
+{
+    background-color: #ca2a2a; /* Red */
+    color: #ffffff;
+    font-size: 14pt;
+}
+
+#requiredExplanation
+{
+    margin-top: 20px;
+    font-size: 8pt;
+}
