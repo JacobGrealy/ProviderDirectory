@@ -3,6 +3,7 @@ var ProviderListRecord =  React.createClass({
         return {
             checkedProp: false, 
             index: undefined,
+            displayIndex: 1, 
             last_name: "",
             first_name:"",
             email_address:"",
@@ -17,7 +18,7 @@ var ProviderListRecord =  React.createClass({
     
     render: function(){
         var classString = "whiteBackground";
-        if(this.props.index % 2 === 0)
+        if(this.props.displayIndex % 2 === 0)
         {
             classString = "blueBackground";
         }

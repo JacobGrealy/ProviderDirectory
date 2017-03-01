@@ -163,8 +163,8 @@ var ProviderList = React.createClass({
                     </div>
                     <hr></hr>
                     <div id ="ProviderListRecordListDiv">
-                        {this.filterAndSort(this.props.providersArray,this.state.filterArray,this.state.sortOption,this.state.sortOrder).map(function (provider) {
-                            return <ProviderListRecord checkedProp={this.state.checkedArray.includes(provider.index)} index={provider.index} last_name ={provider.last_name} first_name ={provider.first_name} email_address={provider.email_address} specialty={provider.specialty} practice_name ={provider.practice_name} reverseCheckCB={this.reverseCheck}/>
+                        {this.filterAndSort(this.props.providersArray,this.state.filterArray,this.state.sortOption,this.state.sortOrder).map(function (provider,i) {
+                            return <ProviderListRecord checkedProp={this.state.checkedArray.includes(provider.index)} displayIndex={i} index={provider.index} last_name ={provider.last_name} first_name ={provider.first_name} email_address={provider.email_address} specialty={provider.specialty} practice_name ={provider.practice_name} reverseCheckCB={this.reverseCheck}/>
                         },this)}
                     </div>
                 </div>  
