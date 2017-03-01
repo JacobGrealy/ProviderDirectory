@@ -1,6 +1,7 @@
 var ProviderListRecord =  React.createClass({
     getDefaultProps: function () {
         return {
+            checkedProp: false, 
             index: undefined,
             last_name: "",
             first_name:"",
@@ -9,6 +10,11 @@ var ProviderListRecord =  React.createClass({
             practice_name:""
         };
     },
+    
+    checkBoxChange: function(event){
+        this.props.reverseCheckCB(this.props.index)
+    },
+    
     render: function(){
         var classString = "whiteBackground";
         if(this.props.index % 2 === 0)
@@ -17,7 +23,7 @@ var ProviderListRecord =  React.createClass({
         }
         return(
             <div className={classString+" providerListRecord"}>
-            <input className="recordCheckbox" type="checkbox"></input>
+            <input className="recordCheckbox" type="checkbox" checked={this.props.checkedProp} onChange={this.checkBoxChange}></input>
             <table className="recordText">
                 <tr>
                     <td className="lastAndFirstName">{this.props.last_name}, {this.props.first_name}</td>

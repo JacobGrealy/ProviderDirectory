@@ -51,16 +51,18 @@
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 14px;
-    background-color: green; /* Green */
+    background-color: #2c4f2b;
     color: #ffffff;
     font-size: 14pt;
+    border: none;
 }
 
 #CancelButton
 {
-    background-color: #ca2a2a; /* Red */
+    background-color: #721616;
     color: #ffffff;
     font-size: 14pt;
+    border: none;
 }
 
 #requiredExplanation

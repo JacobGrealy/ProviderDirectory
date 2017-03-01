@@ -1,49 +1,22 @@
-//JSON string of initial providers
-var existingDataJSONString = '[{"last_name":"Harris","first_name":"Mike","email_address":"mharris@updox.com","specialty":"Pediatrics","practice_name":"Harris Pediatrics"},{"last_name":"Wijoyo","first_name":"Bimo","email_address":"bwijoyo@updox.com","specialty":"Podiatry","practice_name":"Wijoyo Podiatry"},{"last_name":"Rose","first_name":"Nate","email_address":"nrose@updox.com","specialty":"Surgery","practice_name":"Rose Cutters"},{"last_name":"Carlson","first_name":"Mike","email_address":"mcarlson@updox.com","specialty":"Orthopedics","practice_name":"Carlson Orthopedics"},{"last_name":"Witting","first_name":"Mike","email_address":"mwitting@updox.com","specialty":"Pediatrics","practice_name":"Witting’s Well Kids Pediatrics"},{"last_name":"Juday","first_name":"Tobin","email_address":"tjuday@updox.com","specialty":"General Medicine","practice_name":"Juday Family Practice"}]';
-
 var ProviderList = React.createClass({
-    getInitialState: function (){
-        //Load the JSON string into an array of objects
-        var providerArraywithIndexes = JSON.parse(existingDataJSONString);
-        //add an index value onto all the provider objects
-        for (var i = 0, len = providerArraywithIndexes.length; i < len; i++) 
-        {
-            providerArraywithIndexes[i].index = i;
-        }        
+    getDefaultProps: function () {
+        return {
+            providerArray: [],
+        };
+    },
+    
+    getInitialState: function (){    
         return{
-            providersArray: providerArraywithIndexes,
             filterArray: [],
             checkedArray: []
-        }
-    },
-    
-    removeProviders: function (){
-        var newProviderArray = [];
-        for (var i = 0, len = this.state.providersArray.length; i < len; i++) 
-        {
-            if(!checkedArray.contains(i)){
-                newProviderArray.push}
-        }
-        this.setState({providersArray: newProviderArray});
-    },
-    
-    updateProvider: function (providerJSONString,i){
-        var providersArrayCopy = this.state.providersArray;
-        providersArrayCopy[i] = JSON.parse(providerJSONString);
-        this.setState({providersArray: providersArrayCopy})
-    },
-    
-    createProvider: function (providerJSONString,i){
-        var providersArrayCopy = this.state.providersArray;
-        providersArrayCopy[i] = JSON.parse(providerJSONString);
-        this.setState({providersArray: providersArrayCopy})
+        };
     },
     
     compareProviders: function (sortAttribute, sortOrder)
     {
         return function(a, b){
             return((a[sortAttribute].localeCompare(b[sortAttribute]))*sortOrder);
-        }
+        };
     },
     
     filterAndSort: function (providerArray, searchTermsArray, sortAttribute, sortOrder){
@@ -84,7 +57,7 @@ var ProviderList = React.createClass({
     },
     
     changeSort: function (sortOptionPassed){
-        var newSortOption =""
+        var newSortOption ="";
         if(sortOptionPassed==="Last Name"){
             newSortOption = "last_name";}
         if(sortOptionPassed==="First Name"){
@@ -108,8 +81,71 @@ var ProviderList = React.createClass({
         if(filterPassed !== undefined && filterPassed !== null)
         {
             newfilterArray = filterPassed.split(/(\s+)/).filter( function(e) { return e.trim().length > 0; } ); // we need the filter to get rid of white space
+            //We need to clear the checked array because some checked items might not be visible anymore
+            this.state.checkedArray = [];
         }
         this.setState({filterArray: newfilterArray});
+    },
+    
+    reverseCheck: function (index){
+        var nextCheckedArray = [];
+        if(this.state.checkedArray.includes(index))
+        {
+            for (var i = 0, len = this.state.checkedArray.length; i < len; i++) 
+            {
+                if(this.state.checkedArray[i]!==index)
+                {
+                    nextCheckedArray.push(this.state.checkedArray[i]);
+                }
+            }
+        }
+        else
+        {
+            nextCheckedArray = this.state.checkedArray;
+            nextCheckedArray.push(index);
+        }
+        this.setState({checkedArray: nextCheckedArray});
+    },    
+    
+    createButtonOnClick: function (event){
+        this.props.openCreateEditProviderCB("create");
+    },
+    
+    editButtonOnClick: function (event){
+        this.props.openCreateEditProviderCB("edit",this.state.checkedArray[0]);
+    },
+    
+    RemoveButtonOnClick: function (event){
+        this.props.removeProvidersCB(this.state.checkedArray);
+        //clear the checked array
+        this.setState({checkedArray: []});
+    },    
+   
+    renderCreateButton: function(){
+        if(this.props.mode === "none" && this.state.checkedArray.length === 0){
+            return <input type="button" id="CreateButton" value="Create" onClick={this.createButtonOnClick}/>
+        }
+        else{
+            return null;
+        }            
+    },
+    
+    renderEditButton: function(){
+        if(this.props.mode === "none" && this.state.checkedArray.length === 1){
+            return <input type="button" id="EditButton" value="Edit" onClick={this.editButtonOnClick}/>
+        }
+        else{
+            return null;
+        }            
+    },
+    
+    renderRemoveButton: function(){
+        if(this.props.mode === "none" && this.state.checkedArray.length > 0){
+            return <input type="button" id="RemoveButton" value="Remove" onClick={this.RemoveButtonOnClick}/>
+        }
+        else{
+            return null;
+        }         
     },
     
     render: function(){
@@ -120,12 +156,16 @@ var ProviderList = React.createClass({
                 <ProviderListSearch changeFilter={this.changeFilter}/>
                 <ProviderListSort changeSort={this.changeSort} changeSortOrder={this.changeSortOrder} sort_options={["Last Name", "First Name", "Specialty", "Email Address", "Practice Name"]}/>
                     <hr></hr>
-                    <div id ="SelectRemoveEditDiv">[ ] [Create] [Remove] [Edit]</div>
+                    <div id ="SelectRemoveEditDiv">
+                        {this.renderCreateButton()}
+                        {this.renderEditButton()}
+                        {this.renderRemoveButton()}
+                    </div>
                     <hr></hr>
                     <div id ="ProviderListRecordListDiv">
-                        {this.filterAndSort(this.state.providersArray,this.state.filterArray,this.state.sortOption,this.state.sortOrder).map(function (provider,i) {
-                            return <ProviderListRecord index = {i} last_name ={provider.last_name} first_name ={provider.first_name} email_address={provider.email_address} specialty={provider.specialty} practice_name ={provider.practice_name}/>
-                        })}
+                        {this.filterAndSort(this.props.providersArray,this.state.filterArray,this.state.sortOption,this.state.sortOrder).map(function (provider) {
+                            return <ProviderListRecord checkedProp={this.state.checkedArray.includes(provider.index)} index={provider.index} last_name ={provider.last_name} first_name ={provider.first_name} email_address={provider.email_address} specialty={provider.specialty} practice_name ={provider.practice_name} reverseCheckCB={this.reverseCheck}/>
+                        },this)}
                     </div>
                 </div>  
             </div>

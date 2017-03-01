@@ -9,11 +9,10 @@
         <link href="css/ProviderListStyleSheet.css" rel="stylesheet" type="text/css"/>
         <link href="css/CreateEditProviderStyleSheet.css" rel="stylesheet" type="text/css"/>
         
+        <script src="scripts/libraries/react.min.js"></script> <!-- React Framework -->
+        <script src="scripts/libraries/react-dom.min.js"></script> <!-- React Framework -->
+        <script src="scripts/libraries/babel.min.js"></script> <!-- Babel js for converting our jsx into js -->
         
-        <script src="https://unpkg.com/react@15/dist/react.min.js"></script> <!-- React Framework -->
-        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script> <!-- React Framework -->
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- Babel js for converting our jsx into js -->
- 
         <!-- Helper React Scripts to support our main script -->
         <script src="scripts/ProviderDirectoryApp.jsx" type="text/babel"></script>
         <script src="scripts/CreateEditProvider.jsx" type="text/babel"></script>
@@ -30,12 +29,12 @@
     <body>
       <Div id ="ContentContainer">
             <div id ="TitleBarContainer">
-                <div id ="UpdoxLogoDiv"><img id="logoImage" src="resources/updoxLogo_white_bullet_background.png"alt="Updox"></img></div>
+                <div id ="UpdoxLogoDiv"><img id="logoImage" src="resources/updoxLogo_white_bullet_background.png" alt="Updox"></div>
                 <div id ="TitleTextandVersionContainerDiv">Provider Directory<div id ="TitleVersionDiv"></div></div>                           
             </div>
             <div id="ProviderDirectoryAppContainer"></div>
             <div id="footer">
-                Designed By: <a href="http://JacobGrealy.com">Jacob Grealy</a> 2017
+                Designed by: <a href="http://JacobGrealy.com">Jacob Grealy</a> 2017
             </div>
       </div>
     </body>

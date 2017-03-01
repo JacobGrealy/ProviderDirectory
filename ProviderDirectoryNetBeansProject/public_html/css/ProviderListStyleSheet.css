@@ -51,9 +51,10 @@
 {
     vertical-align:top;
     display: inline-block;
-    font-size: 9pt;
+    font-size: 12pt;
     background-color: #00264d;
     color: #ffffff;
+    border: none;
 }
 
 #searchTextBox
@@ -64,9 +65,10 @@
 
 #searchButton
 {
-    font-size: 10pt;
+    font-size: 12.1pt;
     background-color: #00264d;
     color: #ffffff;
+    border: none;
 }
 
 .whiteBackground
@@ -99,8 +101,9 @@
 
 .lastAndFirstName
 {
-    font-weight: bold;
+    font-weight: bolder;
     text-align: left;
+    font-size: 15pt;
 }
 
 .specialty
@@ -116,4 +119,31 @@
 .practiceName
 {
     text-align: right;
+}
+
+#CreateButton
+{
+    margin-left: 5px;
+    background-color: #2c4f2b;
+    color: #ffffff;
+    border: none;
+    font-size: 12pt;
+}
+
+#EditButton
+{
+    margin-left: 5px;
+    background-color: #996126;
+    color: #ffffff;
+    border: none;
+    font-size: 12pt;
+}
+
+#RemoveButton
+{
+    margin-left: 5px;
+    background-color: #721616;
+    color: #ffffff;
+    border: none;
+    font-size: 12pt;
 }
